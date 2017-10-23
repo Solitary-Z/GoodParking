@@ -6,7 +6,7 @@ import goodsDetails from '@/pages/goodsDetails'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
+ /* routes: [
     {
       path: '/',
       name: 'menuList',
@@ -17,5 +17,5 @@ export default new Router({
       name: 'goodsDetails',
       component: goodsDetails
     }
-  ]
+  ]*/
 })

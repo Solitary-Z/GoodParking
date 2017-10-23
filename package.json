@@ -2,7 +2,7 @@
   "name": "order",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "zhangweisheng <zhangweisheng@yunzongnet.com>",
+  "author": "yeyue",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
