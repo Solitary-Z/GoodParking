@@ -1,0 +1,175 @@
+@import "remCalc";
+@import "colors";
+@import "public";
+
+%narrow-border {
+  position: relative;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    height: 1px;
+    border-bottom: 1px solid $color-border;
+    width: 100%;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+  }
+}
+
+%select-amount {
+  position: absolute;
+  @include remCalc(bottom, 14);
+  @include remCalc(right, 30);
+  input {
+    @include remCalc(width, 60);
+    @include remCalc(font-size, 30);
+    text-align: center;
+    @include remCalc(padding, 0, 2);
+    @extend %box-sizing;
+    float: left;
+  }
+  i {
+    color: $color-blue;
+    @include remCalc(font-size, 44);
+    float: left;
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      @include remCalc(left, -20);
+      @include remCalc(right, -20);
+      @include remCalc(top, -20);
+      @include remCalc(bottom, -20);
+    }
+  }
+}
+
+.goods-wrap {
+  background: #fff;
+  @include remCalc(padding, 0, 0, 0, 170);
+  @include remCalc(width, 580);
+  height: 100%;
+  overflow: hidden;
+  .goods-list {
+    .kind-type-wrap {
+      @include remCalc(height, 50);
+      .kind-type {
+        background: #f8f8f8;
+        font-weight: normal;
+        color: #999;
+        @include remCalc(width, 580);
+        @include remCalc(font-size, 26);
+        @include remCalc(line-height, 50);
+        @include remCalc(padding-left, 20);
+        position: relative;
+        z-index: 2;
+        &.fix-top {
+          position: fixed;
+          top: 0;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          @include remCalc(width, 6);
+          @include remCalc(height, 28);
+          background: #ddd;
+          left: 0;
+          @include remCalc(top, 11);
+        }
+      }
+    }
+    .kind-type-wrap:first-child {
+      & + li:after {
+        display: none;
+      }
+    }
+    > li {
+      @extend %narrow-border;
+      @include remCalc(padding, 20, 30, 20, 0);
+      @include remCalc(margin-left, 20);
+      @extend %box-sizing;
+      position: relative;
+      a {
+        display: inline-block;
+      }
+      .pic {
+        @include remCalc(width, 120);
+        @include remCalc(height, 120);
+      }
+      .name {
+        position: absolute;
+        @include remCalc(top, 16);
+        @include remCalc(left, 140);
+        @include remCalc(width, 390);
+        @extend %text-overflow;
+        @include remCalc(font-size, 30);
+        color: #333;
+      }
+      .price {
+        position: absolute;
+        @include remCalc(bottom, 12);
+        @include remCalc(left, 140);
+        color: $color-red;
+        @include remCalc(font-size, 36);
+        i {
+          font-style: normal;
+          @include remCalc(font-size, 30);
+        }
+      }
+      .discount {
+        @include remCalc(font-size, 22);
+        position: absolute;
+        @include remCalc(top, 66);
+        @include remCalc(left, 140);
+        @include remCalc(height, 26);
+        @include remCalc(line-height, 26);
+        @include remCalc(border-radius, 2);
+        border: 1px solid $color-blue;
+        color: $color-blue;
+        overflow: hidden;
+
+        > i {
+          @include remCalc(height, 26);
+          color: #fff;
+          background: $color-blue;
+          display: inline-block;
+          @include remCalc(padding, 2, 8, 0, 8);
+          font-style: normal;
+        }
+        > span {
+          @include remCalc(padding, 0, 8);
+        }
+
+      }
+      .select-amount {
+        position: absolute;
+        @include remCalc(bottom, 14);
+        @include remCalc(right, 30);
+      }
+
+      .specifications {
+        position: absolute;
+        @include remCalc(bottom, 20);
+        @include remCalc(right, 50);
+        @include remCalc(border-radius, 22);
+        @include remCalc(font-size, 22);
+        @include remCalc(padding, 6, 16);
+        color: $color-blue;
+        border: 1px solid $color-blue;
+        i {
+          position: absolute;
+          font-style: normal;
+          color: #fff;
+          background: $color-red;
+          @include remCalc(font-size, 20);
+          @include remCalc(border-radius, 16);
+          @include remCalc(padding, 0, 10);
+          @include remCalc(line-height, 32);
+          @include remCalc(top, -16);
+          @include remCalc(right, -16);
+        }
+      }
+    }
+  }
+}
